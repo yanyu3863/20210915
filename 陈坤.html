@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .a{
+            width: 200px;
+				height: 200px;
+				margin: auto;
+				margin-top: 230px;
+        }
+    </style>
+
+    
+
+</head>
+
+<body>
+    
+    <div class="a">
+        <input type="text" id="nums"><button id="button" onclick="mybutton()">加密计算</button>
+        <p id="myp"></p>
+    </div>
+
+    <script>
+        function mybutton() {
+
+            var num = document.getElementById("nums").value;
+            if (num > 1000 && num <= 9999) {              //判断数据合法
+                var a1 = parseInt(((num / 1000) + 5) % 10);            //第一位数
+                var a2 = parseInt((num % 1000 / 100 + 5) % 10);        //第二位数
+                var a3 = parseInt((num % 100 / 10 + 5) % 10);          //第三位数
+                var a4 = parseInt((num % 10 + 5) % 10);                //第四位数
+                document.getElementById("myp").innerHTML = "加密数字为：" + (a4 * 1000 + a3 * 100 + a2 * 10 + a1);
+            } else {
+                document.getElementById("myp").innerHTML = "您输入的数字有误"
+            }
+        }
+    </script>
+
+</body>
+
+</html>
